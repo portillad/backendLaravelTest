@@ -62,14 +62,12 @@ class VehiclesController extends Controller
         
         if($validator->fails()){
 
-            error_log('FAILED:'.$request->vehicletype.' '.$request->power);
             return response([
                 'status'=> 422,
                 'message'=> 'Error in validation',
             ]);
 
         }else{
-            error_log('GOOD ' . $request->vehicletype);
 
             $request->vehicletype == '1'? $vehicle = new Sedan : $vehicle = new Motorcycle;
 
